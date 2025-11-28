@@ -18,6 +18,7 @@ include(UseSWIG)
 message(STATUS "SWIG found: ${SWIG_EXECUTABLE}")
 message(STATUS "SWIG version: ${SWIG_VERSION}")
 
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 # Configure SWIG options (don't include -python, it's automatic)
 set(CMAKE_SWIG_FLAGS -c++ -Wall)
 
