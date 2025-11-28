@@ -1,6 +1,10 @@
 # Build directories
 build/
 lib/
+_codeql_build_dir/
+
+# CodeQL artifacts
+_codeql_detected_source_root
 
 # Python bytecode
 __pycache__/

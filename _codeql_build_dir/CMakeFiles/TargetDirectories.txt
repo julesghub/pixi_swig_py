@@ -1,4 +1,0 @@
-/home/runner/work/pixi_swig_py/pixi_swig_py/_codeql_build_dir/CMakeFiles/example.dir
-/home/runner/work/pixi_swig_py/pixi_swig_py/_codeql_build_dir/CMakeFiles/example_swig_compilation.dir
-/home/runner/work/pixi_swig_py/pixi_swig_py/_codeql_build_dir/CMakeFiles/edit_cache.dir
-/home/runner/work/pixi_swig_py/pixi_swig_py/_codeql_build_dir/CMakeFiles/rebuild_cache.dir
