@@ -1,0 +1,45 @@
+[workspace]
+name = "c-arrays"
+version = "1.0.0"
+description = "SWIG C arrays wrapper with CMake 4.0+"
+channels = ["conda-forge"]
+platforms = ["osx-arm64", "osx-64", "linux-64", "win-64"]
+
+[dependencies]
+python = ">=3.8"
+swig = ">=4.0"
+cmake = ">=4.0"
+setuptools = "*"
+pip = "*"
+
+[tasks]
+# Check CMake version
+check-cmake = "cmake --version"
+
+# Clean build artifacts
+clean = "rm -rf build __pycache__ _c_arrays.so c_arrays.py c_arrays_wrap.cpp c_arrays.egg-info"
+
+# Build using setup.py with CMake
+build = { cmd = "pip install . -v", depends-on = ["clean"] }
+
+# Direct CMake build (for development/testing)
+build-cmake = """
+mkdir -p build && 
+cd build && 
+cmake .. -DCMAKE_BUILD_TYPE=Debug && 
+cmake --build . --parallel &&
+cp _c_arrays.so c_arrays.py .. &&
+echo '✓ Build complete'
+"""
+
+# Test the extension
+test = { cmd = "python test_c_arrays.py", depends-on = ["build"] }
+
+# Quick test without full rebuild
+test-quick = "python test_c_arrays.py"
+
+# Full workflow
+all = { depends-on = ["check-cmake", "clean", "build", "test"] }
+
+# Development mode: build with CMake directly for faster iteration
+dev = { cmd = "pixi run build-cmake && pixi run test-quick" }
