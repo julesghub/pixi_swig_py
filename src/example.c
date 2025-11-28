@@ -10,6 +10,9 @@ double multiply(double a, double b) {
 }
 
 int factorial(int n) {
+    if (n < 0) {
+        return -1;  /* Error: undefined for negative numbers */
+    }
     if (n <= 1) {
         return 1;
     }
@@ -23,5 +26,12 @@ int fibonacci(int n) {
     if (n == 1) {
         return 1;
     }
-    return fibonacci(n - 1) + fibonacci(n - 2);
+    /* Iterative approach for O(n) time complexity */
+    int a = 0, b = 1, temp;
+    for (int i = 2; i <= n; i++) {
+        temp = a + b;
+        a = b;
+        b = temp;
+    }
+    return b;
 }

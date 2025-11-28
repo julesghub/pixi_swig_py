@@ -2,11 +2,11 @@
 """Test script for the example SWIG module."""
 
 import sys
-import os
+from pathlib import Path
 
 # Add the lib directory to the Python path
-lib_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib')
-sys.path.insert(0, lib_dir)
+lib_dir = Path(__file__).resolve().parent.parent / 'lib'
+sys.path.insert(0, str(lib_dir))
 
 import example
 
@@ -33,6 +33,7 @@ def test_factorial():
     assert example.factorial(1) == 1
     assert example.factorial(5) == 120
     assert example.factorial(10) == 3628800
+    assert example.factorial(-1) == -1  # Error case for negative input
     print("test_factorial passed")
 
 
