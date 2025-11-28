@@ -1,0 +1,18 @@
+[project]
+name = "pixi_swig_py"
+version = "0.1.0"
+description = "A test repository for building Python C extensions with SWIG, CMake, and Pixi"
+authors = ["Your Name <your.email@example.com>"]
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-64", "osx-arm64"]
+
+[tasks]
+configure = "cmake -B build -S ."
+build = { cmd = "cmake --build build", depends-on = ["configure"] }
+test = { cmd = "python tests/test_example.py", depends-on = ["build"] }
+clean = "rm -rf build lib"
+
+[dependencies]
+python = ">=3.9"
+cmake = ">=3.15"
+swig = ">=4.0"

@@ -1,0 +1,35 @@
+# Build directories
+build/
+lib/
+_codeql_build_dir/
+
+# CodeQL artifacts
+_codeql_detected_source_root
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# SWIG generated files (in build directory)
+*.cxx
+*_wrap.c
+
+# Shared libraries
+*.so
+*.dylib
+*.dll
+
+# Pixi
+.pixi/
+pixi.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
