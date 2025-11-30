@@ -8,11 +8,9 @@
 **~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*/
 /* -*- C -*-  (not really, but good for syntax highlighting) */
 
-#if (SWIG_VERSION <= 0x040000)
-%module (package="jpack") c_arrays
-#else
-%module (package="jpack", moduleimport="import $module") c_arrays
-#endif
+
+%module c_arrays
+
 
 %{
 /* Includes the header in the wrapper code */
