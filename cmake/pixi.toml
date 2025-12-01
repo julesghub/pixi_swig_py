@@ -6,7 +6,7 @@ channels = ["conda-forge"]
 platforms = ["osx-arm64", "osx-64", "linux-64", "win-64"]
 
 [dependencies]
-python = ">=3.8"
+python = "3.11.*"
 swig = ">=4.0"
 cmake = ">=4.0"
 setuptools = "*"
@@ -24,10 +24,10 @@ build = { cmd = "pip install . -v", depends-on = ["clean"] }
 
 # Direct CMake build (for development/testing)
 build-cmake = """
-mkdir -p build && 
-cd build && 
+mkdir -p build_pixi && 
+cd build_pixi && 
 cmake .. -DCMAKE_BUILD_TYPE=Debug && 
-cmake --build . --parallel &&
+cmake --build . --parallel -v &&
 cp _c_arrays.so c_arrays.py .. &&
 echo '✓ Build complete'
 """
