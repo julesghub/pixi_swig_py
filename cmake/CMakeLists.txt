@@ -28,6 +28,7 @@ set_target_properties(mytarget PROPERTIES
 )
 target_include_directories(mytarget PRIVATE ${Python3_INCLUDE_DIRS})
 
+if(APPLE)
 # link to python here, not needed for linux, but required for macOS
-target_link_libraries(mytarget PRIVATE Python3::Module)
-#target_compile_options(mytarget PRIVATE -Wall)
+  target_link_libraries(mytarget PRIVATE Python3::Module)
+endif()
